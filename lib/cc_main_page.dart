@@ -1,28 +1,29 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class AppStart extends StatelessWidget {
-  const AppStart({super.key});
+  const AppStart({Key? key}) : super(key: key); //<-- REMOVE const KEYWORD
 
   @override
   Widget build(BuildContext context) {
     const borderStyle = OutlineInputBorder(
-      borderSide: BorderSide(width: 3, color: Colors.white), //<-- SEE HERE
+      borderSide: BorderSide(width: 3, color: Colors.white),
     );
 
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Colors.blueGrey,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               "0",
               style: TextStyle(
                   fontSize: 60,
                   fontWeight: FontWeight.bold,
                   color: Colors.white),
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.all(16.0),
               child: TextField(
                 decoration: InputDecoration(
@@ -41,6 +42,26 @@ class AppStart extends StatelessWidget {
                 keyboardType: TextInputType.numberWithOptions(decimal: true),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: TextButton(
+                onPressed: () {
+                  if (kDebugMode) {
+                    print("Button Pressed");
+                  }
+                },
+                style: TextButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    foregroundColor: Colors.white,
+                    minimumSize: const Size(double.infinity, 50),
+                    textStyle: const TextStyle(color: Colors.white),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8))),
+                child: const Text(
+                  "Convert",
+                ),
+              ),
+            )
           ],
         ),
       ),
