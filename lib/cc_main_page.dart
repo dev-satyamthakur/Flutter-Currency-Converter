@@ -12,6 +12,15 @@ class AppStart extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.blueGrey,
+      appBar: AppBar(
+        backgroundColor: Colors.blueGrey,
+        title: const Text("Currency Converter"),
+        titleTextStyle: const TextStyle(
+          color: Colors.white,
+          fontSize: 18.00,
+        ),
+        centerTitle: true,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -44,13 +53,13 @@ class AppStart extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: TextButton(
+              child: ElevatedButton(
                 onPressed: () {
                   if (kDebugMode) {
                     print("Button Pressed");
                   }
                 },
-                style: TextButton.styleFrom(
+                style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
                     foregroundColor: Colors.white,
                     minimumSize: const Size(double.infinity, 50),
