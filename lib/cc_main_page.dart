@@ -1,11 +1,21 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class AppStart extends StatelessWidget {
-  const AppStart({Key? key}) : super(key: key); //<-- REMOVE const KEYWORD
+class AppStartE extends StatefulWidget {
+  const AppStartE({super.key});
 
   @override
+  State<AppStartE> createState() {
+    return _AppStartE();
+  }
+}
+
+class _AppStartE extends State<AppStartE> {
+  @override
   Widget build(BuildContext context) {
+    double result = 0;
+    final TextEditingController textEditingController = TextEditingController();
+
     const borderStyle = OutlineInputBorder(
       borderSide: BorderSide(width: 3, color: Colors.white),
     );
@@ -32,10 +42,11 @@ class AppStart extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: Colors.white),
             ),
-            const Padding(
-              padding: EdgeInsets.all(16.0),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
               child: TextField(
-                decoration: InputDecoration(
+                controller: textEditingController,
+                decoration: const InputDecoration(
                   hintText: "Enter the amount in USD",
                   hintStyle: TextStyle(color: Colors.white),
                   prefixIcon: Icon(
@@ -45,18 +56,21 @@ class AppStart extends StatelessWidget {
                   enabledBorder: borderStyle,
                   focusedBorder: borderStyle,
                 ),
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                 ),
-                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                keyboardType:
+                    const TextInputType.numberWithOptions(decimal: true),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
                 onPressed: () {
+                  result = double.parse(textEditingController.text) * 83.17;
                   if (kDebugMode) {
                     print("Button Pressed");
+                    print(result);
                   }
                 },
                 style: ElevatedButton.styleFrom(
