@@ -11,11 +11,11 @@ class AppStartE extends StatefulWidget {
 }
 
 class _AppStartE extends State<AppStartE> {
+  double result = 0;
+  final TextEditingController textEditingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    double result = 0;
-    final TextEditingController textEditingController = TextEditingController();
-
     const borderStyle = OutlineInputBorder(
       borderSide: BorderSide(width: 3, color: Colors.white),
     );
@@ -35,9 +35,9 @@ class _AppStartE extends State<AppStartE> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              "0",
-              style: TextStyle(
+            Text(
+                '$result',
+              style: const TextStyle(
                   fontSize: 60,
                   fontWeight: FontWeight.bold,
                   color: Colors.white),
@@ -67,11 +67,13 @@ class _AppStartE extends State<AppStartE> {
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
                 onPressed: () {
-                  result = double.parse(textEditingController.text) * 83.17;
                   if (kDebugMode) {
                     print("Button Pressed");
                     print(result);
                   }
+                  setState(() {
+                    result = double.parse(textEditingController.text) * 83.17;
+                  });
                 },
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
