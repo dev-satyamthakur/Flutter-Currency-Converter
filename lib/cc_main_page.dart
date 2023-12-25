@@ -17,13 +17,13 @@ class _AppStartE extends State<AppStartE> {
   @override
   Widget build(BuildContext context) {
     const borderStyle = OutlineInputBorder(
-      borderSide: BorderSide(width: 3, color: Colors.white),
+      borderSide: BorderSide(width: 3, color: Colors.black),
     );
 
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.lightBlueAccent,
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.lightBlueAccent,
         title: const Text("Currency Converter"),
         titleTextStyle: const TextStyle(
           color: Colors.white,
@@ -36,7 +36,7 @@ class _AppStartE extends State<AppStartE> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-                '$result',
+              '₹ ${result.toStringAsFixed(2)}',
               style: const TextStyle(
                   fontSize: 60,
                   fontWeight: FontWeight.bold,
@@ -48,16 +48,16 @@ class _AppStartE extends State<AppStartE> {
                 controller: textEditingController,
                 decoration: const InputDecoration(
                   hintText: "Enter the amount in USD",
-                  hintStyle: TextStyle(color: Colors.white),
+                  hintStyle: TextStyle(color: Colors.black),
                   prefixIcon: Icon(
                     Icons.monetization_on_outlined,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                   enabledBorder: borderStyle,
                   focusedBorder: borderStyle,
                 ),
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
                 keyboardType:
                     const TextInputType.numberWithOptions(decimal: true),
